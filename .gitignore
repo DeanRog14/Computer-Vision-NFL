@@ -1,5 +1,9 @@
 .venv/
 __pycache__/
 .ipynb_checkpoints/
-data/
+/data/
 artifacts/
+runs/
+weights/
+*.pt
+Ultralytics/

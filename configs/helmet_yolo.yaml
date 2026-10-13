@@ -1,0 +1,36 @@
+# Paths are resolved against the repository root by the project scripts.
+model: yolo11n.pt
+data: data/processed/yolo/dataset.yaml
+train:
+  imgsz: 960
+  epochs: 50
+  batch: 8
+  device: auto
+  patience: 10
+  save: true
+  save_period: 5
+  project: runs/detect
+  name: helmet_yolo11n
+  exist_ok: false
+  seed: 42
+  deterministic: true
+  workers: 4
+  pretrained: true
+  optimizer: auto
+  amp: true
+  cache: false
+  val: true
+  plots: true
+  close_mosaic: 10
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
+  degrees: 0.0
+  translate: 0.1
+  scale: 0.5
+  shear: 0.0
+  perspective: 0.0
+  flipud: 0.0
+  fliplr: 0.5
+  mosaic: 1.0
+  mixup: 0.0
