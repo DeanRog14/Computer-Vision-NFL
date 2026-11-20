@@ -98,4 +98,7 @@ overwrite output directories (choose a new `--output`), and offer `--dry-run`
 for path checks without model loading. No trained checkpoint exists yet, so no
 training, real evaluation, inference, or weight download was performed during
 setup. CPU-only test results are retained in `data/processed/yolo/setup_validation.json`.
-Impact classification is outside this phase.
+For the nine-frame impact classifier, configuration, data policies, validation,
+and Google Colab commands, see [the temporal pipeline guide](docs/temporal_impact_colab.md)
+and [the exploration notebook](notebooks/06_temporal_impact_exploration.ipynb).
+Training is an explicit separate command and has not been run during setup.
