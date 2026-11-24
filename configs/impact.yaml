@@ -1,0 +1,51 @@
+seed: 42
+paths:
+  labels: data/train_labels.csv
+  videos: data/videos/train
+  existing_splits: data/processed/yolo/manifest.csv
+  manifest: data/processed/impact/manifest.csv
+  output: runs/impact/r3d18
+  helmet_checkpoint: weights/helmet_best.pt
+  impact_checkpoint: weights/impact_best.pt
+data:
+  frames: 9
+  size: 112
+  context: 2.0
+  boundary: repeat
+  missing_position: center
+  # NFL CSV uses blank impact for ordinary helmets. Enable only after review.
+  blank_is_negative: true
+  negative_ratio: 5.0
+  hard_fraction: 0.5
+  negative_spacing: 9
+  event_gap: 4
+  hard_distance: 2.0
+model:
+  pretrained: false
+cache:
+  enabled: true
+  path: data/processed/impact/crops_v2
+  validation_subset: false  # opt-in changes validation/model-selection behavior
+validation:
+  negatives: 500
+  seed: 42
+  cache_path: data/processed/impact/val_epoch_500
+train:
+  batch_size: 8
+  workers: 2
+  epochs: 30
+  lr: 0.0001
+  weight_decay: 0.0001
+  patience: 5
+  pos_weight: 1.0
+  device: auto
+  amp: true
+inference:
+  device: auto  # CUDA when available, otherwise CPU
+  batch_size: 8
+  detector_confidence: 0.15
+  threshold: null  # null uses the checkpoint's validation-selected threshold
+  track_iou: 0.10
+  track_max_missing: 4
+  event_gap: 4
+  event_iou: 0.35  # spatial suppression for the existing evaluation command
