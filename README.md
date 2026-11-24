@@ -8,6 +8,11 @@ The end-to-end inference command accepts an NFL video, tracks helmets, and expor
 
 This project was developed as a senior-level computer vision research project.
 
+### Impact detection demo
+
+[Watch the annotated video](demo/impact-review.mp4) ·
+[See alert timestamps and scores](demo/impact-alerts.csv)
+
 ## Project Overview
 
 Helmet impacts are difficult to identify using traditional object detection because an impact is an event, not simply an object. Two helmets appearing close together or overlapping in an image does not necessarily indicate that a collision occurred.
