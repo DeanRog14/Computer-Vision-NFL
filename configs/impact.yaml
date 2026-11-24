@@ -6,6 +6,7 @@ paths:
   manifest: data/processed/impact/manifest.csv
   output: runs/impact/r3d18
   helmet_checkpoint: weights/helmet_best.pt
+  impact_checkpoint: weights/impact_best.pt
 data:
   frames: 9
   size: 112
@@ -40,7 +41,11 @@ train:
   device: auto
   amp: true
 inference:
+  device: auto  # CUDA when available, otherwise CPU
+  batch_size: 8
   detector_confidence: 0.15
   threshold: null  # null uses the checkpoint's validation-selected threshold
+  track_iou: 0.10
+  track_max_missing: 4
   event_gap: 4
-  event_iou: 0.35
+  event_iou: 0.35  # spatial suppression for the existing evaluation command
