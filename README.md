@@ -10,6 +10,8 @@ This project was developed as a senior-level computer vision research project.
 
 ### Impact detection demo
 
+https://github.com/user-attachments/assets/f4fd0f0c-ee99-438e-9271-f3a6a594b1ac
+
 [Watch the annotated video](demo/impact-review.mp4) ·
 [See alert timestamps and scores](demo/impact-alerts.csv)
 
